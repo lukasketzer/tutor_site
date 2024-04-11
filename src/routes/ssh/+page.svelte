@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>SSH Guide | Lukas Ketzer</title>
+    <title>SSH Guide</title>
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown-dark.min.css"
