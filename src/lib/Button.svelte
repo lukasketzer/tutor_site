@@ -19,8 +19,8 @@
     }
 </script>
 
-<a href={url} class="button is-outlined is-primary is-rounded is-inverted" download>
-    <span class="icon-text">
+<a href={url} class="button is-outlined is-primary is-rounded is-inverted block" download>
+    <span class="icon-text is-size-6-mobile">
         <span class="icon">{@html icon}</span>  
         <span>{text}</span>
     </span>

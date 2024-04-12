@@ -10,9 +10,9 @@
 
 
 
-<div class="box">
+<div class="box" style="width: 70%">
 
-    <h1 class="title">Woche {week}</h1>
+    <h1 class="title is-size-5-mobile">Woche {week}</h1>
     <hr>
 
     {#each files as file}
@@ -20,10 +20,3 @@
     {/each}
 
 </div>
-
-<style>
-    .box {
-        width: 70%;
-    }
-
-</style>
