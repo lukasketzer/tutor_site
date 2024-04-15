@@ -4,7 +4,7 @@
 
 <div class="container markdown-body">
     <p>
-        In diesem Guide werdet ihr lernen, wie ihr SSH auf euer Maschiene
+        In diesem Guide werdet ihr lernen, wie ihr SSH auf euer Maschine
         einrichtet, so dass ihr euch auf die <strong>Rechnerhalle</strong>
         verbinden könnt. Dieser Guide ist eine Alternative zu dem
         ausführlicheren
@@ -22,19 +22,20 @@
         <li><a href="#ssh-installieren">SSH installieren</a></li>
         <li><a href="#ssh">SSH</a></li>
         <li><a href="#ssh-ohne-passwort">SSH ohne Passwort</a></li>
+        <!-- <li><a href="#ssh-ohne-passwort">SSH Config</a></li> -->
         <li><a href="https://code.visualstudio.com/docs/remote/ssh">SSH in VSCode</a></li>
     </ul>
     <h1 id="rbg-account--ito-account">RBG-Account / ITO-Account</h1>
     <p>
         Damit du die Rechnerhalle verwenden kannst, brauchst du einen <strong
             >RBG- / ITO-Account</strong
-        >. Zu beginn des ersten Semesters habt solltest du eine Email bekommen,
+        >. Zu Beginn des ersten Semesters habt solltest du eine Email bekommen,
         in dem ein Link ist, mit dem du einen
         <strong>RBG- / ITO-Account</strong>
         erstellen kann. Bei Fragen und Unklarheiten kann man im offizielles
         <a href="https://www.cit.tum.de/ito/fuer-studierende/fuer-neue/"
             >ITO-Wiki</a
-        > nachschalgen.
+        > nachschlagen.
     </p>
     <h1 id="ssh-installieren">SSH installieren</h1>
     <p>
@@ -45,7 +46,7 @@
         Aus Erfahrung würde ich allen Windows-Nutzern empfehlen <code>ssh</code>
         über WSL (Windows Subsystem for Linux) zu nutzen. Man kann
         <code>ssh</code> auch über Windows nativ benutzen, die Einrichtung ist meiner
-        Meinung nacher aber komplizierter und in der Vergangheit hab ich immer wieder
+        Meinung nacher aber komplizierter und in der Vergangheit habe ich immer wieder
         Probleme bei Windows gesehen.
     </p>
     <h3 id="wsl-installieren">WSL installieren</h3>
@@ -56,7 +57,7 @@
     </p>
     <p>
         Zuerst muss WSL für Windows aktiviert werden. Dafür musst du die <strong
-            >Windows Powershell</strong
+            >Windows PowerShell</strong
         >
         oder <strong>Windows-CMD</strong> öffnen und folgenden Befehl ausführen.
     </p>
@@ -73,7 +74,7 @@
     <h2 id="macos">macOS</h2>
     <p>
         Auf den neueren <strong>macOS</strong>-Versionen sollte <code>ssh</code>
-        schon installiert sein. Um zu prüfen ob <code>ssh</code> richtig
+        schon installiert sein. Um zu prüfen, ob <code>ssh</code> richtig
         funktioniert, musst du den <strong>Terminal</strong> öffnen und den folgenden
         Command ausführen.
     </p>
@@ -124,7 +125,7 @@
         folgenden Befehl auf die <strong>Rechnerhalle</strong> verbinden.
     </p>
     <p>
-        Allerdins musst du hierbei immer noch euer <strong>Passwort</strong> eingeben.
+        Allerdings musst du hierbei immer noch euer <strong>Passwort</strong> eingeben.
     </p>
     <h3 id="auf-die-rechnerhalle-verbinden">Auf die Rechnerhalle verbinden</h3>
     <pre><code class="language-sh"
@@ -133,7 +134,7 @@
 &gt; ssh muster@lxhalle.in.tum.de</code></pre>
     <h3 id="rechnerhalle-verlassen">Rechnerhalle verlassen</h3>
     <ol>
-        <li>Terminal / Fenster Schlißen</li>
+        <li>Terminal / Fenster Schließen</li>
         <li><code>exit</code>-Befehl ausführen</li>
     </ol>
     <pre><code
@@ -143,11 +144,11 @@
         Warum sollte man einen SSH-Schlüssel verwenden?
     </h3>
     <p>
-        Wie du warscheinlich schon bemerkt hast, muss du jedes mal dein <strong
+        Wie du wahrscheinlich schon bemerkt hast, muss du jedes Mal dein <strong
             >Passwort</strong
         >
-        eingeben, wenn du versuchst dich, per <code>ssh</code>auf die
-        Rechnerhalle zu verbinden. Das kann irgendwann nervig werden, vorallem
+        eingeben, wenn du versuchst dich, per <code>ssh</code> auf die
+        Rechnerhalle zu verbinden. Das kann irgendwann nervig werden, vor allem
         wenn man mehrere Verbindungen zu dem Server gleichzeitig hat.
     </p>
     <p>
@@ -158,13 +159,13 @@
         schickt.
     </p>
     <p>
-        Verbindest du dich nun auf die Rechnerhalle wird jedes mal dein <strong
+        Verbindest du dich nun auf die Rechnerhalle wird jedes Mal dein <strong
             >lokaler, geheimer Schlüssel</strong
         >
         mit dem <strong>öffentlichen Schlüssel auf der Rechnerhalle</strong> abgeglichen.
     </p>
     <p>
-        Wenn alles stimmt kannst du dich sofort verbinden, <strong
+        Wenn alles stimmt, kannst du dich sofort verbinden, <strong
             >ohne dein Passwort eingeben zu müssen</strong
         >.
     </p>
@@ -172,7 +173,7 @@
         Falls du mehr dazu lesen willst is <a
             href="https://www.ssh.com/academy/ssh/public-key-authentication"
             >hier</a
-        > ein iformativer Link.
+        > ein informativer Link.
     </p>
     <h3 id="ein-ssh-schlüssel-paar-erstellen">
         Ein SSH-Schlüssel-Paar erstellen
@@ -190,7 +191,7 @@
             >&gt; ssh-keygen -t ed25519</code></pre>
     <p>
         <strong
-            >2. Dateinamen unverändern lassen (<code>&lt;Enter&gt;</code> drücken)</strong
+            >2. Dateinamen unverändert lassen (<code>&lt;Enter&gt;</code> drücken)</strong
         >
     </p>
     <pre><code class="language-sh"
@@ -198,17 +199,17 @@
 Enter file in which to save the key (path/to/home/.ssh/id_ed25519):  # &lt;Enter&gt;</code></pre>
     <p><strong>3. Kein Passwort eingeben</strong></p>
     <p>
-        Im nächsten Schritt werdet ihr nach einen <strong>Passwort</strong>
-        gefragt. Hier müsst ihr kein Passwort eingeben sondern einfach nur
+        Im nächsten Schritt werdet ihr nach einem <strong>Passwort</strong>
+        gefragt. Hier müsst ihr kein Passwort eingeben, sondern einfach nur
         <code>&lt;Enter&gt;</code>. Solltet ihr doch ein Passwort eingeben müsst
-        ihr dieses Passwort eingeben, jedes mal wenn ihr den
+        ihr dieses Passwort eingeben, jedes Mal wenn ihr den
         <strong>SSH-Schlüssel</strong> verwendet.
     </p>
     <pre><code class="language-sh"
             ># Hier kein Passwort eingeben, nur &lt;Enter&gt; drücken
 Enter passphrase (empty for no passphrase):  # &lt;Enter&gt;
 Enter same passphrase again:                 # &lt;Enter&gt;</code></pre>
-    <p><strong>4. Geheimer und Öffnetlicher Schlüssel</strong></p>
+    <p><strong>4. Geheimer und öffnetlicher Schlüssel</strong></p>
     <p>
         Falls ihr den Schritten korrekt gefolgt seid, solltet ihr in <code
             >~/.ssh</code
