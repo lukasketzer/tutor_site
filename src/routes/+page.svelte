@@ -1,22 +1,20 @@
 <script>
-    import Entry from "$lib/Entry.svelte";
-    import folie_woche1 from "$lib/lessons/week1/test.txt";
-    // const lessons = [
-    //     {
-    //         week: 1,
-    //         files: [
-    //             {
-    //                 url: folie_woche1,
-    //                 text: "Folien",
-    //             },
-    //         ],
-    //     },
-    // ];
-    const lessons = []
+    import Entries from "$lib/Entries.svelte";
+    import SSH from "$lib/ssh/SSH.svelte";
+    let ssh = false;
 </script>
 
 <svelte:head>
-    <title>Folien</title>
+    <title>GRA SS24</title>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown-dark.min.css"
+        integrity="sha512-MmL2FuLmm/UH05Ah4JiJwA+G7OCceZDpzGHWqsju4Espzq+9nwQJdQVMNZPd1FNK2H3qDYXdET7HNG7Qm93FEg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+
+
 </svelte:head>
 
 <div class="container">
@@ -56,60 +54,28 @@
         </div>
     </div>
 
-    <div id="entries">
-        <div class="box" style="width: 70%">
-            <h1 class="title is-size-5-mobile">Nützliche Links</h1>
-            <hr />
-            <a
-                href="/ssh"
-                class="button is-outlined is-warning is-rounded is-inverted block"
-            >
-                SSH Guide
-            </a>
-
-            <a
-                href="https://gra.caps.in.tum.de/"
-                class="button is-outlined is-warning is-rounded is-inverted block"
-            >
-                GRA-Website
-            </a>
-            <a
-                href="https://www.felixcloutier.com/x86/"
-                class="button is-outlined is-warning is-rounded is-inverted block"
-            >
-                x86 instructions
-            </a>
-            <a
-                href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#"
-                class="button is-outlined is-warning is-rounded is-inverted block"
-            >
-                Intel intrinsic
-            </a>
-            <a
-                href="https://githowto.com/"
-                class="button is-outlined is-warning is-rounded is-inverted block"
-            >
-                GitHowTo
-            </a>
-        </div>
-
-        {#if lessons.length == 0}
-            No entries yet
-        {:else}
-            {#each lessons as lesson}
-                <Entry week={lesson.week} files={lesson.files} />
-            {/each}
-        {/if}
+    <div class="tabs is-centered is-boxed">
+        <ul>
+            <li class=""><button on:click={() => (ssh = false)}><a href="">Folien</a></button></li>
+            <li class=""><button on:click={() => (ssh = true)}><a href="">SSH Guide</a></button></li>
+        </ul>
     </div>
+
+    {#if !ssh}
+        <div>
+            <Entries />
+        </div>
+    {:else}
+        <div>
+            <h1 class="title is-2">
+                <span><a href="#"> # </a></span>SSH Guide
+            </h1>
+            <SSH />
+        </div>
+    {/if}
 </div>
 
 <style>
-    #entries {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
     .links {
         display: flex;
         justify-content: center;
@@ -123,5 +89,8 @@
     .header {
         margin-top: 5em;
         margin-bottom: 5em;
+    }
+    .tabs {
+        margin-bottom: 5rem;
     }
 </style>

@@ -3,20 +3,20 @@ In this guide you will learn how to set up SSH on you mashine to access the **Re
 # Overview
 
 - [Overview](#overview)
-- [RBG-Account](#rbg-account)
+- [RBG-Account / ITO-Account](#rbg-account--ito-account)
 - [Install OpenSSH](#install-openssh)
 - [SSH](#ssh)
 - [SSH without a password](#ssh-without-a-password)
 
 # RBG-Account / ITO-Account
 
-For all of this to work you need a **RBG-Account**. There is an official guide on the [ITO-Wiki](https://www.cit.tum.de/ito/fuer-studierende/fuer-neue/). I advice you to use the official wiki if you have more questions regarding your RBG-Account.
+For all of this to work you need a **RBG-Account**. There is an official guide on the [ITO-Wiki](https://www.cit.tum.de/ito/fuer-studierende/fuer-neue/). I advise you to use the official wiki if you have more questions regarding your RBG-Account.
 
-You should have gotten an email with a link to activate you account. Follow the instructions from the email to activate your RBG-Account.
+You should have gotten an email with a link to activate your account. This email also contains instructions which you can follow to help you with the activation.
 
 # Install OpenSSH
 
-In this guide you will learn how setup `ssh` on your system to access the **Rechnerhalle**
+Here, you will learn how setup `ssh` on your system to access the **Rechnerhalle**
 
 ## Windows (WSL)
 
@@ -28,11 +28,11 @@ I would advise you to use WSL on windows if you want to use `ssh`.
 > wsl --install
 ```
 
-From now on, you can follow the **Linux** guide to install `ssh`.
+From now on, you can follow the [**Linux**](#linux) guide to install `ssh`.
 
 ## macOS
 
-On the newest MacOs-versions, `ssh` is already installed by default.
+In the newest MacOs-versions, `ssh` is already installed by default.
 Check by executing the following command.
 
 ```sh
@@ -43,7 +43,7 @@ If `ssh` is installed, you should get a **usage**-message.
 
 ## Linux
 
-First of all you need to install `openssh-client` to use the `ssh` command on linux. Most Linux-distributions already have an `ssh-client` installed so the Installatin-step can be skiped
+To use the `ssh` command on Linux, you need to install `openssh-client`. Most Linux-distributions already have a `ssh-client` installed so the installation step can be skiped
 
 **Ubuntu** (and WSL)
 
@@ -81,26 +81,28 @@ usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-B bind_interface] [-b bind_address]
 
 # SSH
 
-The basic command to connect on the **Rechnerhalle**. This is the same command wether you are using a Linux-distribution, MacOS or WSL (Windows).
+`ssh` is basic command to connect on the **Rechnerhalle**. This is the same command wether you are using a Linux-distribution, MacOS or WSL (Windows).
 
 ```sh
 > ssh <ito-username>@lxhalle.in.tum.de
 # Example:
-> ssh ketz@lxhalle.in.tum.de
+> ssh smith@lxhalle.in.tum.de
 ```
 
 # SSH without a password
 
-#### **Why should you set up an SSH-Key?**
+### Why should you set up an SSH-Key?
 
-As you may already have noticed, you must alway enter you RBG-password when connecting to the **Rechnerhalle**. This can be annoying if you are planing to use the Rechnerhalle on a regular basis.
+As you may already have noticed, you must alway enter you RBG-password when connecting to the **Rechnerhalle** via the `ssh` command. This can be annoying if you are planing on using the Rechnerhalle on a regular basis.
 
-Luckily there is a solution. You can create an **SSH-Key-Pair** and send you **public-key** to the **Rechnerhalle**. From now on, you can connect to the Rechnerhalle without entering a password all the time.
+Luckily there is a solution. You can create an **SSH-Key-Pair** and send you **public-key** to the **Rechnerhalle**.
 
-If you want to read more about how it works [here](https://www.ssh.com/academy/ssh/public-key-authentication) is a link.
+If you want to read more about how this works [here](https://www.ssh.com/academy/ssh/public-key-authentication) is a link.
+
+
 
 ### Creating an SSH-Key-Pair
-
+### !!! All of the following commands should be executed on your local machine not on the Rechnerhalle !!!
 ```sh
 > ssh-keygen -t ed25519
 ```
@@ -109,7 +111,7 @@ After executing the command you will get a prompt something like this
 
 ```sh
 Generating public/private ed25519 key pair.
-Enter file in which to save the key (<path_to_home>/.ssh/id_ed25519):  # press <Enter>
+Enter file in which to save the key (path/to/home/.ssh/id_ed25519):  # press <Enter>
 ```
 
 Press `<Enter>` to continue with the default name or enter a name for you file
@@ -117,13 +119,14 @@ Press `<Enter>` to continue with the default name or enter a name for you file
 For the next step, you will be prompted to **assign a password** to the **SSH-Key**
 
 ```sh
-Enter passphrase (empty for no passphrase):  # press <Enter> or choose a password
-Enter same passphrase again:                 # press <Enter> or repeat you password
+# You don't want to enter a password here. (Otherwise you will have to enter you password everytime you use ssh)
+Enter passphrase (empty for no passphrase):  # press <Enter>
+Enter same passphrase again:                 # press <Enter>
 ```
 
-You want to press `<Enter>` and leave the password-field empty. If you choose to enter a password, you will need to enter the password everytime you use the Key-Pair.
+You want to press `<Enter>` and leave the password-field empty. If you choose to enter a password, you will need to enter the password everytime you use the key pair.
 
-If you followed those steps, correctly you will now find two new files in the directoy: `~/.ssh`.
+If you followed those steps correctly you will now find two new files in the directoy: `~/.ssh`.
 
 ```sh
 > ls -l ~/.ssh
@@ -135,14 +138,14 @@ If you followed those steps, correctly you will now find two new files in the di
 
 ### Send your public-key to the Rechnerhalle
 
-In this step you will be sending your public-key to the **Rechnerhalle**.
+In this step you will be sending your public key to the **Rechnerhalle**.
 
 ```sh
 > ssh-copy-id -i ~/.ssh/id_ed25519.pub <ito-username>@lxhalle.in.tum.de 
-# Example: ssh-copy-id -i ~/.ssh/id_ed25519.pub ketz@lxhalle.in.tum.de
+# Example: ssh-copy-id -i ~/.ssh/id_ed25519.pub smith@lxhalle.in.tum.de
 ```
 
-This command copys the public-key, specified with **`-i ~/.ssh/id_ed25519.pub`** to the **Rechnerhalle**
+This command copys the public key, specified with **`-i ~/.ssh/id_ed25519.pub`** to the **Rechnerhalle**
 
 ### Accessing the Rechnerhalle
 
@@ -150,4 +153,5 @@ From now on you can use the following commad to connect to the Rechnerhalle with
 
 ```sh
 > ssh <ito-username>@lxhalle.in.tum.de
+# Example: ssh smith@lxhalle.in.tum.de
 ```
