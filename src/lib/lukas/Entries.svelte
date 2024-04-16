@@ -1,6 +1,6 @@
 <script>
     import Entry from "$lib/Entry.svelte";
-    import folie_woche1 from "$lib/lessons/week1/test.txt";
+    import folie_woche1 from "$lib/lukas/lessons/week1/test.txt";
     const lessons = [
         {
             week: 1,
