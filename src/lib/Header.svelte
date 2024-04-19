@@ -1,5 +1,7 @@
 <script>
+    import Links from "$lib/Links.svelte"
     export let name;
+    
 
 </script>
 
@@ -12,41 +14,10 @@
             Sommersemester 2024 | {name}
         </h1>
     </div>
-
-    <div class="links">
-        <a href="https://github.com/lukasketzer" class="navbar-item">
-            <span class="icon-text">
-                <span class="icon">
-                    <i class="bi bi-github"></i>
-                </span>
-                Github
-            </span>
-        </a>
-        <a href="mailto:lukas.a.ketzer@tum.de" class="navbar-item">
-            <span class="icon-text">
-                <span class="icon">
-                    <i class="bi bi-envelope"></i>
-                </span>
-                lukas.a.ketzer@tum.de
-            </span>
-        </a>
-        <div>
-            <p class="navbar-item">Zulip: Lukas Ketzer</p>
-        </div>
-    </div>
 </div>
 
 <style>
-.links {
-        display: flex;
-        justify-content: center;
-        align-self: center;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    .icon {
-        padding-bottom: 3px;
-    }
+
     .header {
         margin-top: 5em;
         margin-bottom: 5em;

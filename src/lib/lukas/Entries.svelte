@@ -23,12 +23,7 @@
     <div class="box" style="width: 70%">
         <h1 class="title is-size-5-mobile">Nützliche Links</h1>
         <hr />
-        <a
-            href="https://gra.caps.in.tum.de/"
-            class="button is-outlined is-warning is-rounded is-inverted block"
-        >
-            GRA-Website
-        </a>
+        
         <a
             href="https://www.felixcloutier.com/x86/"
             class="button is-outlined is-warning is-rounded is-inverted block"
