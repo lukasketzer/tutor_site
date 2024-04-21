@@ -16,7 +16,7 @@
     <hr>
 
     {#each files as file}
-        <Button url={file.url} text={file.text} class="block"/>
+        <Button url={file.url} text={file.text} />
     {/each}
 
 </div>

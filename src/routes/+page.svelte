@@ -10,12 +10,15 @@
 </svelte:head>
 
 <div class="container">
-    <Header name={"Lukas Ketzer"}/>
-    <Links email={"lukas.a.ketzer@tum.de"} github_link={"https://github.com/lukasketzer"} zulip={"Lukas Ketzer"}/>
+    <Header name={"Lukas Ketzer"} />
+    <Links
+        email={"lukas.a.ketzer@tum.de"}
+        github_link={"https://github.com/lukasketzer"}
+        zulip={"https://zulip.in.tum.de/#narrow/dm/11498-Lukas-Ketzer"}
+        zulip_name={"Lukas Ketzer"}
+    />
 
-    <Navbar is_active={0}/>
-    
+    <Navbar is_active={0} />
 
     <Entries />
 </div>
-

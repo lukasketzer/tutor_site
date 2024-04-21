@@ -25,6 +25,10 @@
                 href="https://wiki.ito.cit.tum.de/bin/view/Informatik/Helpdesk/WebHome"
                 >ITO-Wiki</a
             >.
+
+        </p>
+        <p>
+            Bei Fehlern oder Unvollständigkeit gerne <span><a href="mailto:lukas.a.ketzer@tum.de">mich</a></span> kontaktieren.
         </p>
         <h1 id="übersicht">Übersicht</h1>
         <ul>

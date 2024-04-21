@@ -2,6 +2,11 @@
     export let email;
     export let github_link;
     export let zulip;
+    export let zulip_name;
+
+    if (email.length == 0) {
+        email = "Nicht angegeben"
+    }
 </script>
 
 <div class="links">
@@ -21,9 +26,14 @@
             {email}
         </span>
     </a>
-    <div>
-        <p class="navbar-item">Zulip: {zulip}</p>
-    </div>
+    <a href={zulip} class="navbar-item">
+        <span class="icon-text">
+            <span class="icon">
+                <i class="bi bi-chat-dots"></i>
+            </span>
+            Zulip: {zulip_name}
+        </span>
+    </a>
 </div>
 
 <style>

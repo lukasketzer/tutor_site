@@ -22,25 +22,25 @@
         
         <a
             href="https://www.felixcloutier.com/x86/"
-            class="button is-outlined is-warning is-rounded is-inverted block"
+            class="button is-outlined is-warning  is-inverted "
         >
             x86 instructions
         </a>
         <a
             href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#"
-            class="button is-outlined is-warning is-rounded is-inverted block"
+            class="button is-outlined is-warning  is-inverted "
         >
             Intel intrinsic
         </a>
         <a
             href="https://githowto.com/"
-            class="button is-outlined is-warning is-rounded is-inverted block"
+            class="button is-outlined is-warning  is-inverted "
         >
             GitHowTo
         </a>
         <a
             href="https://www.cit.tum.de/ito/fuer-studierende/fuer-neue/"
-            class="button is-outlined is-warning is-rounded is-inverted block"
+            class="button is-outlined is-warning  is-inverted "
         >
             ITO-Wiki: Für Neue
         </a>
@@ -62,4 +62,9 @@
         justify-content: center;
         flex-direction: column;
     }
+    a {
+        margin: 0.2rem;
+    }
+
+
 </style>
