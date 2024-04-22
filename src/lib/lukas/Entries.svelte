@@ -1,6 +1,7 @@
 <script>
     import Entry from "$lib/Entry.svelte";
-    import folie_woche1 from "$lib/lukas/lessons/week1/test.txt";
+    import folie_woche1 from "$lib/lukas/lessons/week1/GRA_SS24_Week1.pdf";
+    import example_woche1 from "$lib/lukas/lessons/week1/example.zip";
     const lessons = [
         {
             week: 1,
@@ -9,15 +10,15 @@
                     url: folie_woche1,
                     text: "Folien",
                 },
+                {
+                    url: example_woche1,
+                    text: "Beispiele"
+                },
             ],
         },
     ];
-    // const lessons = [];
 </script>
 
-<!-- <svelte:head>
-    <title>Folien</title>
-</svelte:head> -->
 
 <div class="entries">
     <div class="box" style="width: 70%;">
