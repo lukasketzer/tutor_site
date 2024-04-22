@@ -7,6 +7,7 @@ In diesem Guide werdet ihr lernen, wie ihr SSH auf euer Maschiene einrichtet, so
 - [SSH installieren](#ssh-installieren)
 - [SSH](#ssh)
 - [SSH ohne Passwort](#ssh-ohne-passwort)
+- [SSH Config](#ssh-config)
 
 # RBG-Account / ITO-Account
 
@@ -170,3 +171,75 @@ Falls allen Schritten erfolgreich gefolgt wurden, kannst du jetzt mit dem selben
 > ssh <ito-username>@lxhalle.in.tum.de
 # Example: ssh muster@lxhalle.in.tum.de
 ```
+
+
+# SSH Config
+Anstelle jedes mal `ssh muster@lxhalle.in.tum.de` eingeben müssen, kannst du auch eine SSH-Config-Datei erstellen. In der SSH-Config kannst du Konfigurationen für verschiedene SSH-Server speichern. 
+#### Beispiel
+```sh
+> ssh rechnerhalle                  # (die coole Art)
+# anstelle
+> ssh muster@lxhalle.in.tum.de      # (die nicht so coole Art)
+```
+### 1. Config Datei erstellen 
+Zuerst musst du **auf deinem Laptop** (nicht Rechnerhalle!) eine Datei, namens `config` in dem `~/.ssh` Directory, erstellen.
+
+Der folgende Befehl erstellt diese Datei.
+```sh
+> touch ~/.ssh/config       # erstellt einen file namen config im ~/.ssh Ordner
+```
+
+
+### 2. Config öffnen
+Nun musst du die neu, erstellte Datei öffnen und editieren. Mit dem folgenden Befehl könnt ihr die Datei in dem `nano`-Editor öffnen.
+```sh
+> nano ~/.ssh/config
+```
+Sobald die Datei geöffnet ist, kannst du anfangen in der (noch leeren) Datei mit den **Pfeiltasten** rumnavigieren und anfange die Config zu beschreiben.
+
+
+### 3. Config editieren
+```sh
+# in der ~/.ssh/config Datei
+
+Host custom-name-für-den-server
+    HostName lxhalle.in.tum.de
+    User dein-ito-username
+
+
+# Beispiel
+Host rechnerhalle
+    HostName lxhalle.in.tum.de
+    User muster
+```
+
+### 4. Config Datei speichern
+Um das geschriebene in `nano` zu speichern, musst du `strg+x` drücken.
+Von da aus, musst du den Anweisungen des Editors folgen um die Datei zu speichern
+
+
+### 5. Profit!
+Wenn du jetzt alles funktioniert hat, kannst du deine neue SSH-Config ausprobieren
+```sh
+> ssh custom-name-für-den-server 
+```
+
+# ssh_dispatch_run_fatal-Fehler auf Windows
+Manche Windows-Nutzer bekommen den folgenden Fehler, wenn sie versuchen SSH verwenden.
+
+```sh
+ssh_dispatch_run_fatal: Connection to 131.159.76.9 port 22: message authentication code incorrect
+```
+
+Um das Problem zu beheben, brauchst du erst mal eine [SSH Config](#ssh-config).
+
+Sobald du eine SSH-Config hast kannst du die folgende Zeile in deine `rechnerhallen`-Konfiguration einfügen.
+
+```sh
+Host custom-name-für-den-server
+  HostName lxhalle.in.tum.de
+  MACs hmac-sha2-512            # Der Fix
+  User ito-username
+```
+
+Danke an [Danial Arbabi](https://home.in.tum.de/~arb/) (cooler GRA Tutor) dafür.
