@@ -20,6 +20,13 @@
 </svelte:head> -->
 
 <div class="entries">
+    <div class="box" style="width: 70%;">
+        <h1 class="title is-size-5-mobile">Zeiten</h1>
+        <ul>
+            <li class="is-size-5">Gruppe 18: Do. 10:15 - 12:00 <span><a href="https://nav.tum.de/room/5608.EG.059">MI: 00.08.059</a></span></li>
+            <li class="is-size-5">Gruppe 25: Do. 16:15 - 18:00 <span><a href="https://nav.tum.de/room/5606.01.011">MI: 01.06.011</a></span></li>
+        </ul>
+    </div>
     <div class="box" style="width: 70%">
         <h1 class="title is-size-5-mobile">Nützliche Links</h1>
         <hr />
