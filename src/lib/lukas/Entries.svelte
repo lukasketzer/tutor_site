@@ -2,9 +2,18 @@
     import Entry from "$lib/Entry.svelte";
     import folie_woche1 from "$lib/lukas/lessons/week1/GRA_SS24_Week1.pdf";
     import example_woche1 from "$lib/lukas/lessons/week1/example.zip";
+
+    import folie_woche2 from "$lib/lukas/lessons/week2/GRA_SS24_Week2.pdf";
+    import example_woche2 from "$lib/lukas/lessons/week2/gra24getopt.zip";
+
+
+    import makefile from "$lib/lukas/lessons/week5/Makefile.zip";
+    import example_woche5 from "$lib/lukas/lessons/week5/Beispiel.zip";
+
+
     const lessons = [
         {
-            week: 1,
+            week: 2,
             files: [
                 {
                     url: folie_woche1,
@@ -12,10 +21,36 @@
                 },
                 {
                     url: example_woche1,
-                    text: "Beispiele"
+                    text: "Beispiele (Stack, Heap)"
+                },
+            ]
+        },
+        {
+            week: 3,
+            files: [
+                {
+                    url: folie_woche2,
+                    text: "Folien",
+                },
+                {
+                    url: example_woche2,
+                    text: "getopt Lösung"
                 },
             ],
         },
+        {
+            week: 5,
+            files: [
+                {
+                    url: makefile,
+                    text: "Makefile SystemC Installation",
+                },
+                {
+                    url: example_woche5,
+                    text: "Beispiele (Referenzen, Constructor Member List)",
+                },
+            ],
+        }
     ];
 </script>
 
