@@ -6,7 +6,7 @@
 </script>
 
 <div class="container">
-    <Header name={"Franzisco Shit"} />
+    <Header name={"Franzisco Schmidt"} />
     <Links
         email={""}
         github_link={""}

@@ -43,7 +43,7 @@
             files: [
                 {
                     url: makefile,
-                    text: "Makefile SystemC Installation",
+                    text: "Makefile (MacOS / Linux)",
                 },
                 {
                     url: example_woche5,
