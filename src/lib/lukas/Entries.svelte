@@ -9,6 +9,9 @@
 
     import makefile from "$lib/lukas/lessons/week5/Makefile.zip";
     import example_woche5 from "$lib/lukas/lessons/week5/Beispiel.zip";
+    import folien_woche5 from "$lib/lukas/lessons/week5/GRA_SS24_Week5-1.pdf";
+
+    import folien_woche6 from "$lib/lukas/lessons/week6/GRA_SS24_Week6.pdf";
 
 
     const lessons = [
@@ -49,8 +52,22 @@
                     url: example_woche5,
                     text: "Beispiele (Referenzen, Constructor Member List)",
                 },
+                {
+                    url: folien_woche5,
+                    text: "Folien"
+                }
             ],
+        },
+        {
+            week: 6,
+            files: [
+                {
+                    url: folien_woche6,
+                    text: "Folien"
+                }
+            ]
         }
+
     ];
 </script>
 
