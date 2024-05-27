@@ -42,6 +42,10 @@
             ],
         },
         {
+            week: 4,
+            files: []
+        },
+        {
             week: 5,
             files: [
                 {
@@ -66,7 +70,12 @@
                     text: "Folien"
                 }
             ]
-        }
+        },
+        {
+            week: 7,
+            files: [
+            ]
+        },
 
     ];
 </script>
