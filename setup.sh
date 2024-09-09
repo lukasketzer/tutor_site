@@ -1,9 +1,8 @@
+#!/bin/bash
+# script to install the website on the rechnerhalle
+
 home_page_dir=/u/halle/$USER/home_page
 
-# copy folder
-# rm -rf "$home_page_dir/html-data"
-# cp "./build/" $home_page_dir
-# mv "$home_page_dir/build/" "$home_page_dir/html-data"
 
 cd $home_page_dir # go to html_page direcotry of user
 
