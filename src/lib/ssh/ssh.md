@@ -1,6 +1,6 @@
 In diesem Guide werdet ihr lernen, wie ihr SSH auf euer Maschiene einrichtet, so dass ihr euch auf die **Rechnerhalle** verbinden könnt. 
 
-# Übersicht
+## Übersicht
 
 - [Übersicht](#übersicht)
 - [RBG-Account / ITO-Account](#rbg-account--ito-account)
@@ -8,28 +8,29 @@ In diesem Guide werdet ihr lernen, wie ihr SSH auf euer Maschiene einrichtet, so
 - [SSH](#ssh)
 - [SSH ohne Passwort](#ssh-ohne-passwort)
 - [SSH Config](#ssh-config)
+- [ssh_dispatch_run_fatal](#ssh_dispatch_run_fatal-fehler-auf-windows)
 
-# RBG-Account / ITO-Account
+## RBG-Account / ITO-Account
 
 Damit du die Rechnerhalle verwenden kannst, brauchst du einen **RBG- / ITO-Account**. Zu beginn des ersten Semesters habt solltest du eine Email bekommen, in dem ein Link ist, mit dem du einen **RBG- / ITO-Account** erstellen kann.
 Bei Fragen und Unklarheiten kann man im offizielles [ITO-Wiki](https://www.cit.tum.de/ito/fuer-studierende/fuer-neue/) nachschalgen.
 
 
-# SSH installieren
+## SSH installieren
 
 In diesem Abschnitt wird erklärt, wie man `ssh` installiert.
 
-## Windows (WSL)
+### Windows (WSL)
 
 Aus Erfahrung würde ich allen Windows-Nutzern empfehlen `ssh` über WSL (Windows Subsystem for Linux) zu nutzen. Man kann `ssh` auch über Windows nativ benutzen, die Einrichtung ist meiner Meinung nacher aber komplizierter und in der Vergangheit hab ich immer wieder Probleme bei Windows gesehen.
 
 
-### WSL installieren
+#### WSL installieren
 [Offizielle Microsoft Dokumentation](https://learn.microsoft.com/en-us/windows/wsl/install).
 
 Zuerst muss WSL für Windows aktiviert werden. Dafür musst du die **Windows Powershell** oder **Windows-CMD** öffnen und folgenden Befehl ausführen.
 
-![Powershell öffnen](./powershell.png)
+![Windows PowerShell über das Startmenü öffnen](powershell.png)
 
 ```sh
 # In Windows Powershell
@@ -38,7 +39,7 @@ Zuerst muss WSL für Windows aktiviert werden. Dafür musst du die **Windows Pow
 
 Sobald sich eine neue Shell mit Linux öffnet, kannst du weiter dem [**Linux**](#linux) Guide folgen um `ssh` zu installieren.
 
-## macOS
+### macOS
 
 Auf den neueren **macOS**-Versionen sollte `ssh` schon installiert sein. Um zu prüfen ob `ssh` richtig funktioniert, musst du den **Terminal** öffnen und den folgenden Command ausführen.
 
@@ -48,25 +49,25 @@ Auf den neueren **macOS**-Versionen sollte `ssh` schon installiert sein. Um zu p
 
 Wenn `ssh` installiert ist, solltest du eine [**usage**-Message](#prüfen-ob-ssh-installiet-ist) bekommen wie sie weiter unten zu sehen ist.
 
-## Linux
+### Linux
 
-`ssh` ist auf den meißten Linux-Distros (auf WSL auch) schon standartmäßig installiert. Sollte das nicht so sein kannst du den folgenden Schritten folgen um `openssh-client` für dein Distro zu installieren.
+`ssh` ist auf den meißten Linux-Distros (auf WSL auch) schon standartmäßig installiert. Sollte das nicht so sein kannst du den folgenden Schritten folgen um den SSH-Client für dein Distro zu installieren (Paket `openssh-client` auf Ubuntu, `openssh` auf Arch).
 
-### Ubuntu (and WSL)
-
-```sh
-> sudo apt update  # updates the mirrors 
-> sudo apt openssh-client  # install the ssh-client
-```
-
-### Arch-based (Manjaro, Endeavour, ...)
+#### Ubuntu (and WSL)
 
 ```sh
-> sudo pacman -Syu  # updates the mirrors 
-> sudo pacman -S openssh-client  # install the ssh-client
+> sudo apt update  # updates the package lists
+> sudo apt install openssh-client  # installs the ssh-client
 ```
 
-### Prüfen ob SSH installiet ist
+#### Arch-based (Manjaro, Endeavour, ...)
+
+```sh
+> sudo pacman -Syu  # updates the package lists and the system
+> sudo pacman -S openssh  # installs the ssh-client
+```
+
+#### Prüfen ob SSH installiet ist
 
 ```sh
 > ssh
@@ -85,19 +86,19 @@ usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-B bind_interface] [-b bind_address]
 
 ```
 
-# SSH
+## SSH
 
 Ist jetzt `ssh` erfolgreich installiert kannst du mit dem folgenden Befehl auf die **Rechnerhalle** verbinden.
 
 Allerdins musst du hierbei immer noch euer **Passwort** eingeben.
 
-### Auf die Rechnerhalle verbinden
+#### Auf die Rechnerhalle verbinden
 ```sh
 > ssh <ito-username>@lxhalle.in.tum.de
 # Example:
 > ssh muster@lxhalle.in.tum.de
 ```
-### Rechnerhalle verlassen
+#### Rechnerhalle verlassen
 1. Terminal / Fenster Schlißen
 2. `exit`-Befehl ausführen
 ```
@@ -105,9 +106,9 @@ Allerdins musst du hierbei immer noch euer **Passwort** eingeben.
 ```
 
 
-# SSH ohne Passwort
+## SSH ohne Passwort
 
-### Warum sollte man einen SSH-Schlüssel verwenden?
+#### Warum sollte man einen SSH-Schlüssel verwenden?
 
 Wie du warscheinlich schon bemerkt hast, muss du jedes mal dein **Passwort** eingeben, wenn du versuchst dich, per `ssh`auf die Rechnerhalle zu verbinden.
 Das kann irgendwann nervig werden, vorallem wenn man mehrere Verbindungen zu dem Server gleichzeitig hat.
@@ -121,7 +122,7 @@ Wenn alles stimmt kannst du dich sofort verbinden, **ohne dein Passwort eingeben
 Falls du mehr dazu lesen willst is [hier](https://www.ssh.com/academy/ssh/public-key-authentication) ein iformativer Link.
 
 
-### Ein SSH-Schlüssel-Paar erstellen
+#### Ein SSH-Schlüssel-Paar erstellen
 > **Hinweise**: Alle folgenden Befehle müssen auf eurem **eigenen Computer** ausgeführt werden, **NICHT auf der Rechnerhalle**. Ihr könnt die rechneralle mit `exit` verlassen
 
 **1. SSH-Schlüssel-Paar erstellen**
@@ -157,13 +158,13 @@ Falls ihr den Schritten korrekt gefolgt seid, solltet ihr in `~/.ssh` zwei neue 
 ```
 
 
-### Öffentlichen Schlüssel an die Rechnerhalle schicken
+#### Öffentlichen Schlüssel an die Rechnerhalle schicken
 ```sh
 > ssh-copy-id -i ~/.ssh/id_ed25519.pub <ito-username>@lxhalle.in.tum.de 
 # Example: ssh-copy-id -i ~/.ssh/id_ed25519.pub muster@lxhalle.in.tum.de
 ```
 
-### Auf die Rechnerhalle zugreifen
+#### Auf die Rechnerhalle zugreifen
 
 Falls allen Schritten erfolgreich gefolgt wurden, kannst du jetzt mit dem selben Befehl wie vorher auf die Rechnerhalle zu greifen. Jetzt aber ohne ein Passwort einzugeben.
 
@@ -173,15 +174,15 @@ Falls allen Schritten erfolgreich gefolgt wurden, kannst du jetzt mit dem selben
 ```
 
 
-# SSH Config
+## SSH Config
 Anstelle jedes mal `ssh muster@lxhalle.in.tum.de` eingeben müssen, kannst du auch eine SSH-Config-Datei erstellen. In der SSH-Config kannst du Konfigurationen für verschiedene SSH-Server speichern. 
-#### Beispiel
+##### Beispiel
 ```sh
 > ssh rechnerhalle                  # (die coole Art)
 # anstelle
 > ssh muster@lxhalle.in.tum.de      # (die nicht so coole Art)
 ```
-### 1. Config Datei erstellen 
+#### 1. Config Datei erstellen 
 Zuerst musst du **auf deinem Laptop** (nicht Rechnerhalle!) eine Datei, namens `config` in dem `~/.ssh` Directory, erstellen.
 
 Der folgende Befehl erstellt diese Datei.
@@ -190,7 +191,7 @@ Der folgende Befehl erstellt diese Datei.
 ```
 
 
-### 2. Config öffnen
+#### 2. Config öffnen
 Nun musst du die neu, erstellte Datei öffnen und editieren. Mit dem folgenden Befehl könnt ihr die Datei in dem `nano`-Editor öffnen.
 ```sh
 > nano ~/.ssh/config
@@ -198,7 +199,7 @@ Nun musst du die neu, erstellte Datei öffnen und editieren. Mit dem folgenden B
 Sobald die Datei geöffnet ist, kannst du anfangen in der (noch leeren) Datei mit den **Pfeiltasten** rumnavigieren und anfange die Config zu beschreiben.
 
 
-### 3. Config editieren
+#### 3. Config editieren
 ```sh
 # in der ~/.ssh/config Datei
 
@@ -213,18 +214,18 @@ Host rechnerhalle
     User muster
 ```
 
-### 4. Config Datei speichern
+#### 4. Config Datei speichern
 Um das geschriebene in `nano` zu speichern, musst du `strg+x` drücken.
 Von da aus, musst du den Anweisungen des Editors folgen um die Datei zu speichern
 
 
-### 5. Profit!
+#### 5. Profit!
 Wenn du jetzt alles funktioniert hat, kannst du deine neue SSH-Config ausprobieren
 ```sh
 > ssh custom-name-für-den-server 
 ```
 
-# ssh_dispatch_run_fatal-Fehler auf Windows
+## ssh_dispatch_run_fatal-Fehler auf Windows
 Manche Windows-Nutzer bekommen den folgenden Fehler, wenn sie versuchen SSH verwenden.
 
 ```sh
