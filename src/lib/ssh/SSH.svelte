@@ -17,7 +17,7 @@
     </h1>
     <div class="container markdown-body">
      <p>In diesem Guide werdet ihr lernen, wie ihr SSH auf euer Maschiene einrichtet, so dass ihr euch auf die <strong>Rechnerhalle</strong> verbinden könnt. </p>
-<h1 id="übersicht">Übersicht</h1>
+<h2 id="übersicht">Übersicht</h2>
 <ul>
 <li><a href="#%C3%BCbersicht">Übersicht</a></li>
 <li><a href="#rbg-account--ito-account">RBG-Account / ITO-Account</a></li>
@@ -27,37 +27,37 @@
 <li><a href="#ssh-config">SSH Config</a></li>
 <li><a href="#ssh_dispatch_run_fatal-fehler-auf-windows">ssh_dispatch_run_fatal</a></li>
 </ul>
-<h1 id="rbg-account--ito-account">RBG-Account / ITO-Account</h1>
+<h2 id="rbg-account--ito-account">RBG-Account / ITO-Account</h2>
 <p>Damit du die Rechnerhalle verwenden kannst, brauchst du einen <strong>RBG- / ITO-Account</strong>. Zu beginn des ersten Semesters habt solltest du eine Email bekommen, in dem ein Link ist, mit dem du einen <strong>RBG- / ITO-Account</strong> erstellen kann.
 Bei Fragen und Unklarheiten kann man im offizielles <a href="https://www.cit.tum.de/ito/fuer-studierende/fuer-neue/">ITO-Wiki</a> nachschalgen.</p>
-<h1 id="ssh-installieren">SSH installieren</h1>
+<h2 id="ssh-installieren">SSH installieren</h2>
 <p>In diesem Abschnitt wird erklärt, wie man <code>ssh</code> installiert.</p>
-<h2 id="windows-wsl">Windows (WSL)</h2>
+<h3 id="windows-wsl">Windows (WSL)</h3>
 <p>Aus Erfahrung würde ich allen Windows-Nutzern empfehlen <code>ssh</code> über WSL (Windows Subsystem for Linux) zu nutzen. Man kann <code>ssh</code> auch über Windows nativ benutzen, die Einrichtung ist meiner Meinung nacher aber komplizierter und in der Vergangheit hab ich immer wieder Probleme bei Windows gesehen.</p>
-<h3 id="wsl-installieren">WSL installieren</h3>
+<h4 id="wsl-installieren">WSL installieren</h4>
 <p><a href="https://learn.microsoft.com/en-us/windows/wsl/install">Offizielle Microsoft Dokumentation</a>.</p>
 <p>Zuerst muss WSL für Windows aktiviert werden. Dafür musst du die <strong>Windows Powershell</strong> oder <strong>Windows-CMD</strong> öffnen und folgenden Befehl ausführen.</p>
-<p><img src={powershell} alt="Powershell öffnen"></p>
+<p><img src={powershell} alt="Windows PowerShell über das Startmenü öffnen" loading="lazy"></p>
 <pre><code class="language-sh"># In Windows Powershell
 &gt; wsl --install -d ubuntu
 </code></pre>
 <p>Sobald sich eine neue Shell mit Linux öffnet, kannst du weiter dem <a href="#linux"><strong>Linux</strong></a> Guide folgen um <code>ssh</code> zu installieren.</p>
-<h2 id="macos">macOS</h2>
+<h3 id="macos">macOS</h3>
 <p>Auf den neueren <strong>macOS</strong>-Versionen sollte <code>ssh</code> schon installiert sein. Um zu prüfen ob <code>ssh</code> richtig funktioniert, musst du den <strong>Terminal</strong> öffnen und den folgenden Command ausführen.</p>
 <pre><code class="language-sh">&gt; ssh
 </code></pre>
 <p>Wenn <code>ssh</code> installiert ist, solltest du eine <a href="#pr%C3%BCfen-ob-ssh-installiet-ist"><strong>usage</strong>-Message</a> bekommen wie sie weiter unten zu sehen ist.</p>
-<h2 id="linux">Linux</h2>
+<h3 id="linux">Linux</h3>
 <p><code>ssh</code> ist auf den meißten Linux-Distros (auf WSL auch) schon standartmäßig installiert. Sollte das nicht so sein kannst du den folgenden Schritten folgen um <code>openssh-client</code> für dein Distro zu installieren.</p>
-<h3 id="ubuntu-and-wsl">Ubuntu (and WSL)</h3>
+<h4 id="ubuntu-and-wsl">Ubuntu (and WSL)</h4>
 <pre><code class="language-sh">&gt; sudo apt update  # updates the mirrors 
 &gt; sudo apt openssh-client  # install the ssh-client
 </code></pre>
-<h3 id="arch-based-manjaro-endeavour-">Arch-based (Manjaro, Endeavour, ...)</h3>
+<h4 id="arch-based-manjaro-endeavour-">Arch-based (Manjaro, Endeavour, ...)</h4>
 <pre><code class="language-sh">&gt; sudo pacman -Syu  # updates the mirrors 
 &gt; sudo pacman -S openssh-client  # install the ssh-client
 </code></pre>
-<h3 id="prüfen-ob-ssh-installiet-ist">Prüfen ob SSH installiet ist</h3>
+<h4 id="prüfen-ob-ssh-installiet-ist">Prüfen ob SSH installiet ist</h4>
 <pre><code class="language-sh">&gt; ssh
 </code></pre>
 <p>Falls <code>ssh</code> korrekt installiert wurde solltest du eine <strong>usage</strong>-Message bekommen.</p>
@@ -70,30 +70,30 @@ Bei Fragen und Unklarheiten kann man im offizielles <a href="https://www.cit.tum
            destination [command [argument ...]]
        ssh [-Q query_option]
 </code></pre>
-<h1 id="ssh">SSH</h1>
+<h2 id="ssh">SSH</h2>
 <p>Ist jetzt <code>ssh</code> erfolgreich installiert kannst du mit dem folgenden Befehl auf die <strong>Rechnerhalle</strong> verbinden.</p>
 <p>Allerdins musst du hierbei immer noch euer <strong>Passwort</strong> eingeben.</p>
-<h3 id="auf-die-rechnerhalle-verbinden">Auf die Rechnerhalle verbinden</h3>
+<h4 id="auf-die-rechnerhalle-verbinden">Auf die Rechnerhalle verbinden</h4>
 <pre><code class="language-sh">&gt; ssh &lt;ito-username&gt;@lxhalle.in.tum.de
 # Example:
 &gt; ssh muster@lxhalle.in.tum.de
 </code></pre>
-<h3 id="rechnerhalle-verlassen">Rechnerhalle verlassen</h3>
+<h4 id="rechnerhalle-verlassen">Rechnerhalle verlassen</h4>
 <ol>
 <li>Terminal / Fenster Schlißen</li>
 <li><code>exit</code>-Befehl ausführen</li>
 </ol>
 <pre><code>&gt; exit
 </code></pre>
-<h1 id="ssh-ohne-passwort">SSH ohne Passwort</h1>
-<h3 id="warum-sollte-man-einen-ssh-schlüssel-verwenden">Warum sollte man einen SSH-Schlüssel verwenden?</h3>
+<h2 id="ssh-ohne-passwort">SSH ohne Passwort</h2>
+<h4 id="warum-sollte-man-einen-ssh-schlüssel-verwenden">Warum sollte man einen SSH-Schlüssel verwenden?</h4>
 <p>Wie du warscheinlich schon bemerkt hast, muss du jedes mal dein <strong>Passwort</strong> eingeben, wenn du versuchst dich, per <code>ssh</code>auf die Rechnerhalle zu verbinden.
 Das kann irgendwann nervig werden, vorallem wenn man mehrere Verbindungen zu dem Server gleichzeitig hat.</p>
 <p>Hierfür gibt ein eine praktische Lösung. Man kann sich ein <strong>SSH-Key-Paar</strong> erstellen, wovon man den <strong>Öffentlichen Schlüssel</strong> an die Rechnerhalle schickt. </p>
 <p>Verbindest du dich nun auf die Rechnerhalle  wird jedes mal dein <strong>lokaler, geheimer Schlüssel</strong> mit dem <strong>öffentlichen Schlüssel auf der Rechnerhalle</strong> abgeglichen. </p>
 <p>Wenn alles stimmt kannst du dich sofort verbinden, <strong>ohne dein Passwort eingeben zu müssen</strong>.</p>
 <p>Falls du mehr dazu lesen willst is <a href="https://www.ssh.com/academy/ssh/public-key-authentication">hier</a> ein iformativer Link.</p>
-<h3 id="ein-ssh-schlüssel-paar-erstellen">Ein SSH-Schlüssel-Paar erstellen</h3>
+<h4 id="ein-ssh-schlüssel-paar-erstellen">Ein SSH-Schlüssel-Paar erstellen</h4>
 <blockquote>
 <p><strong>Hinweise</strong>: Alle folgenden Befehle müssen auf eurem <strong>eigenen Computer</strong> ausgeführt werden, <strong>NICHT auf der Rechnerhalle</strong>. Ihr könnt die rechneralle mit <code>exit</code> verlassen</p>
 </blockquote>
@@ -116,33 +116,33 @@ Enter same passphrase again:                 # &lt;Enter&gt;
 -rw------- 1 user user  411 13. Jan 13:05 id_ed25519        # geheimer Schlüssel
 -rw-r--r-- 1 user user  102 13. Jan 13:05 id_ed25519.pub    # öffentlicher Schlüssel
 </code></pre>
-<h3 id="öffentlichen-schlüssel-an-die-rechnerhalle-schicken">Öffentlichen Schlüssel an die Rechnerhalle schicken</h3>
+<h4 id="öffentlichen-schlüssel-an-die-rechnerhalle-schicken">Öffentlichen Schlüssel an die Rechnerhalle schicken</h4>
 <pre><code class="language-sh">&gt; ssh-copy-id -i ~/.ssh/id_ed25519.pub &lt;ito-username&gt;@lxhalle.in.tum.de 
 # Example: ssh-copy-id -i ~/.ssh/id_ed25519.pub muster@lxhalle.in.tum.de
 </code></pre>
-<h3 id="auf-die-rechnerhalle-zugreifen">Auf die Rechnerhalle zugreifen</h3>
+<h4 id="auf-die-rechnerhalle-zugreifen">Auf die Rechnerhalle zugreifen</h4>
 <p>Falls allen Schritten erfolgreich gefolgt wurden, kannst du jetzt mit dem selben Befehl wie vorher auf die Rechnerhalle zu greifen. Jetzt aber ohne ein Passwort einzugeben.</p>
 <pre><code class="language-sh">&gt; ssh &lt;ito-username&gt;@lxhalle.in.tum.de
 # Example: ssh muster@lxhalle.in.tum.de
 </code></pre>
-<h1 id="ssh-config">SSH Config</h1>
+<h2 id="ssh-config">SSH Config</h2>
 <p>Anstelle jedes mal <code>ssh muster@lxhalle.in.tum.de</code> eingeben müssen, kannst du auch eine SSH-Config-Datei erstellen. In der SSH-Config kannst du Konfigurationen für verschiedene SSH-Server speichern. </p>
-<h4 id="beispiel">Beispiel</h4>
+<h5 id="beispiel">Beispiel</h5>
 <pre><code class="language-sh">&gt; ssh rechnerhalle                  # (die coole Art)
 # anstelle
 &gt; ssh muster@lxhalle.in.tum.de      # (die nicht so coole Art)
 </code></pre>
-<h3 id="1-config-datei-erstellen">1. Config Datei erstellen</h3>
+<h4 id="1-config-datei-erstellen">1. Config Datei erstellen</h4>
 <p>Zuerst musst du <strong>auf deinem Laptop</strong> (nicht Rechnerhalle!) eine Datei, namens <code>config</code> in dem <code>~/.ssh</code> Directory, erstellen.</p>
 <p>Der folgende Befehl erstellt diese Datei.</p>
 <pre><code class="language-sh">&gt; touch ~/.ssh/config       # erstellt einen file namen config im ~/.ssh Ordner
 </code></pre>
-<h3 id="2-config-öffnen">2. Config öffnen</h3>
+<h4 id="2-config-öffnen">2. Config öffnen</h4>
 <p>Nun musst du die neu, erstellte Datei öffnen und editieren. Mit dem folgenden Befehl könnt ihr die Datei in dem <code>nano</code>-Editor öffnen.</p>
 <pre><code class="language-sh">&gt; nano ~/.ssh/config
 </code></pre>
 <p>Sobald die Datei geöffnet ist, kannst du anfangen in der (noch leeren) Datei mit den <strong>Pfeiltasten</strong> rumnavigieren und anfange die Config zu beschreiben.</p>
-<h3 id="3-config-editieren">3. Config editieren</h3>
+<h4 id="3-config-editieren">3. Config editieren</h4>
 <pre><code class="language-sh"># in der ~/.ssh/config Datei
 
 Host custom-name-für-den-server
@@ -155,14 +155,14 @@ Host rechnerhalle
     HostName lxhalle.in.tum.de
     User muster
 </code></pre>
-<h3 id="4-config-datei-speichern">4. Config Datei speichern</h3>
+<h4 id="4-config-datei-speichern">4. Config Datei speichern</h4>
 <p>Um das geschriebene in <code>nano</code> zu speichern, musst du <code>strg+x</code> drücken.
 Von da aus, musst du den Anweisungen des Editors folgen um die Datei zu speichern</p>
-<h3 id="5-profit">5. Profit!</h3>
+<h4 id="5-profit">5. Profit!</h4>
 <p>Wenn du jetzt alles funktioniert hat, kannst du deine neue SSH-Config ausprobieren</p>
 <pre><code class="language-sh">&gt; ssh custom-name-für-den-server 
 </code></pre>
-<h1 id="ssh_dispatch_run_fatal-fehler-auf-windows">ssh_dispatch_run_fatal</h1>
+<h2 id="ssh_dispatch_run_fatal-fehler-auf-windows">ssh_dispatch_run_fatal</h2>
 <p>Manche Windows-Nutzer bekommen den folgenden Fehler, wenn sie versuchen SSH verwenden.</p>
 <pre><code class="language-sh">ssh_dispatch_run_fatal: Connection to 131.159.76.9 port 22: message authentication code incorrect
 </code></pre>

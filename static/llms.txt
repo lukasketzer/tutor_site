@@ -1,0 +1,21 @@
+# GRA Tutorium SS24
+
+> Tutoriumsseite zur Vorlesung „Grundlagen: Rechnerarchitektur“ (GRA) an der Technischen Universität München (TUM), Sommersemester 2024. Enthält Folien und Beispielcode der Tutoren Lukas Ketzer und Franzisco Schmidt sowie eine Anleitung, um sich per SSH mit der Rechnerhalle (lxhalle.in.tum.de) zu verbinden.
+
+Die Seite ist auf Deutsch. Behandelte Themen im Tutorium: C (Pointer, Stack und Heap, getopt, Makefiles), x86-Assembly und SIMD-Intrinsics. Fragen an die Tutoren gehen am besten über Zulip der TUM-Informatik.
+
+## Anleitungen
+
+- [SSH-Anleitung für die Rechnerhalle](https://home.cit.tum.de/~ketz/ssh-anleitung.md): SSH unter Windows (WSL), macOS und Linux installieren, per SSH-Schlüssel ohne Passwort verbinden, eine `~/.ssh/config` anlegen und den Fehler `ssh_dispatch_run_fatal` unter Windows beheben
+
+## Tutorien
+
+- [Tutorium Lukas Ketzer](https://home.cit.tum.de/~ketz/): Folien und Beispiele pro Woche, Termine von Gruppe 18 (Do. 10:15–12:00, MI 00.08.059) und Gruppe 25 (Do. 16:15–18:00, MI 01.06.011)
+- [Tutorium Franzisco Schmidt](https://home.cit.tum.de/~ketz/franzisco): Materialien aus dem Tutorium von Franzisco Schmidt
+
+## Optional
+
+- [x86-Befehlsreferenz](https://www.felixcloutier.com/x86/): Nachschlagewerk für x86-Instruktionen
+- [Intel Intrinsics Guide](https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html): Referenz für SIMD-Intrinsics
+- [GitHowTo](https://githowto.com/): Einführung in Git
+- [ITO-Wiki: Für Neue](https://www.cit.tum.de/ito/fuer-studierende/fuer-neue/): Informationen zum RBG-/ITO-Account

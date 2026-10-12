@@ -12,7 +12,7 @@
 
 <div class="box" style="width: 70%">
 
-    <h1 class="title is-size-5-mobile">Woche {week}</h1>
+    <h2 class="title is-size-5-mobile">Woche {week}</h2>
     <hr>
 
     {#each files as file}

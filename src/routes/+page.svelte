@@ -3,11 +3,21 @@
     import Header from "$lib/Header.svelte";
     import Navbar from "$lib/Navbar.svelte";
     import Links from "$lib/Links.svelte";
+    import Seo from "$lib/Seo.svelte";
 </script>
 
-<svelte:head>
-    <title>GRA SS24</title>
-</svelte:head>
+<Seo
+    title="GRA Tutorium SS24 – Lukas Ketzer | Grundlagen: Rechnerarchitektur TUM"
+    description="Folien, Beispielcode und nützliche Links aus dem Tutorium Grundlagen: Rechnerarchitektur (GRA) an der TUM im Sommersemester 2024 bei Lukas Ketzer."
+    jsonld={{
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "GRA Tutorium SS24",
+        url: "https://home.cit.tum.de/~ketz/",
+        inLanguage: "de",
+        author: { "@type": "Person", name: "Lukas Ketzer", sameAs: ["https://github.com/lukasketzer"] },
+    }}
+/>
 
 <div class="container">
     <Header name={"Lukas Ketzer"} />

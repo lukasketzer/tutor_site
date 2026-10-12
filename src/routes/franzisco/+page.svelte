@@ -3,7 +3,14 @@
     import Header from "$lib/Header.svelte";
     import Navbar from "$lib/Navbar.svelte";
     import Links from "$lib/Links.svelte";
+    import Seo from "$lib/Seo.svelte";
 </script>
+
+<Seo
+    title="GRA Tutorium SS24 – Franzisco Schmidt | Grundlagen: Rechnerarchitektur TUM"
+    description="Folien und nützliche Links aus dem Tutorium Grundlagen: Rechnerarchitektur (GRA) an der TUM im Sommersemester 2024 bei Franzisco Schmidt."
+    path="franzisco"
+/>
 
 <div class="container">
     <Header name={"Franzisco Schmidt"} />

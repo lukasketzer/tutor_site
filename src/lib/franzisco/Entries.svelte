@@ -17,7 +17,7 @@
 
 <div class="entries">
     <div class="box" style="width: 70%">
-        <h1 class="title is-size-5-mobile">Nützliche Links</h1>
+        <h2 class="title is-size-5-mobile">Nützliche Links</h2>
         <hr />
         
         <a
